@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { SessionContextProvider } from './components/SessionContextProvider';
+import { SessionContextProvider } from './src/components/SessionContextProvider'; // Ruta corregida
 import './index.css'; // Assuming you have an index.css for global styles
 
 const rootElement = document.getElementById('root');
