@@ -1,7 +1,8 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
+import { SessionContextProvider } from './components/SessionContextProvider';
+import './index.css'; // Assuming you have an index.css for global styles
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -11,6 +12,8 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <SessionContextProvider>
+      <App />
+    </SessionContextProvider>
   </React.StrictMode>
 );
