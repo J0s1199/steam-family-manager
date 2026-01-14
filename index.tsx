@@ -1,7 +1,7 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { SessionContextProvider } from './src/components/SessionContextProvider'; // Corrected path
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -11,8 +11,6 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <SessionContextProvider>
-      <App />
-    </SessionContextProvider>
+    <App />
   </React.StrictMode>
 );
