@@ -17,7 +17,6 @@ export default defineConfig(({ mode }) => {
       resolve: {
         alias: {
           '@': path.resolve(__dirname, '.'),
-          '@/lib': path.resolve(__dirname, './src/integrations/supabase'), // Add alias for Supabase client
         }
       }
     };
