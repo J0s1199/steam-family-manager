@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles from index.html can be moved here if needed, or kept in <style> tag */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #1b2838; /* Steam dark blue */
+    color: #c7d5e0;
+}
+.steam-gradient {
+    background: linear-gradient(180deg, #2a475e 0%, #1b2838 100%);
+}
+.card-shadow {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
