@@ -6,7 +6,7 @@ import { supabase } from '../integrations/supabase/client';
 const Login: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#1b2838] p-4">
-      <div className="bg-[#2a475e] p-8 rounded-2xl w-full max-w-md shadow-2xl border border-blue-900/30">
+      <div className="bg-gray-900 p-8 rounded-2xl w-full max-w-md shadow-2xl border border-blue-900/30"> {/* Changed bg-[#2a475e] to bg-gray-900 */}
         <div className="flex flex-col items-center mb-8">
           <i className="fa-brands fa-steam text-6xl text-blue-400 mb-4"></i>
           <h1 className="text-2xl font-black text-white uppercase tracking-widest">Steam Family</h1>
