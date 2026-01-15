@@ -16,19 +16,34 @@ export const SessionContextProvider: React.FC<{ children: React.ReactNode }> = (
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log('[SessionContextProvider] Initializing session listener...');
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      console.log('[SessionContextProvider] Auth state changed:', _event, session);
       setSession(session);
       setUser(session?.user || null);
-      setLoading(false);
+      setLoading(false); // Set to false after auth state change
     });
 
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session);
-      setUser(session?.user || null);
-      setLoading(false);
-    });
+    supabase.auth.getSession()
+      .then(({ data: { session } }) => {
+        console.log('[SessionContextProvider] Initial session fetched:', session);
+        setSession(session);
+        setUser(session?.user || null);
+      })
+      .catch((error) => {
+        console.error('[SessionContextProvider] Error fetching initial session:', error);
+      })
+      .finally(() => {
+        // Ensure loading is set to false regardless of success or failure
+        console.log('[SessionContextProvider] Initial session fetch completed, setting loading to false.');
+        setLoading(false);
+      });
 
-    return () => subscription.unsubscribe();
+    return () => {
+      console.log('[SessionContextProvider] Unsubscribing from auth state changes.');
+      subscription.unsubscribe();
+    };
   }, []);
 
   return (
